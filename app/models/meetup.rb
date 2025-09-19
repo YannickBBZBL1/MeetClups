@@ -7,5 +7,8 @@ class Meetup < ApplicationRecord
 
   validates :title, presence: true
   validates :datetime, presence: true
+  validates :location, presence: true
+  validates :club_id, presence: true
+  validates :organizer_id, presence: true
   validates :max_participants, numericality: { only_integer: true, greater_than: -1 }
 end

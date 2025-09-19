@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_19_120235) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_19_125556) do
   create_table "club_memberships", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "club_id", null: false
@@ -21,9 +21,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_19_120235) do
   end
 
   create_table "clubs", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.text "description"
-    t.integer "admin_id"
+    t.integer "admin_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["title"], name: "index_clubs_on_title", unique: true
@@ -39,13 +39,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_19_120235) do
   end
 
   create_table "meetups", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.string "subject"
-    t.datetime "datetime"
-    t.string "location"
+    t.datetime "datetime", null: false
+    t.string "location", null: false
     t.integer "max_participants", default: 0
-    t.integer "organizer_id"
-    t.integer "club_id"
+    t.integer "organizer_id", null: false
+    t.integer "club_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
