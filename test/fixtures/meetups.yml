@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  subject: MyString
+  datetime: 2025-09-19 08:35:26
+  location: MyString
+  max_participants: 1
+  organizer_id: 1
+  club_id: 1
+
+two:
+  title: MyString
+  subject: MyString
+  datetime: 2025-09-19 08:35:26
+  location: MyString
+  max_participants: 1
+  organizer_id: 1
+  club_id: 1
