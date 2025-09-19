@@ -1,8 +1,10 @@
 <p style="color: green"><%= notice %></p>
 <%= render @club %>
 <% if authenticated? %>
+  <% if policy(@club).join? %>
   <%= button_to "Join this club", join_club_path(@club), method: :post %>
-  <% if Current.user == @club.admin %>
+  <% end %>
+  <% if policy(@club).edit? %>
   <div>
     <%= link_to "Edit this club", edit_club_path(@club) %> |
     <%= button_to "Destroy this club", @club, method: :delete %>

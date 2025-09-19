@@ -1,22 +1,27 @@
 class ClubsController < ApplicationController
+  include Pundit::Authorization
+
   skip_before_action :require_authentication, only: [:index, :show]
   before_action :set_club, only: [:show, :join]
   before_action :set_user_club, only: [:edit, :update, :destroy]
 
 
   def index
-    @clubs = Club.all
+    @clubs = policy_scope(Club.all)
   end
 
   def new
     @club = Club.new
+    authorize @club
   end
 
   def show
+    authorize @club
   end
 
   def create
     @club = Current.user.clubs_admin.new(club_params)
+    authorize @club
 
     if @club.save
       redirect_to @club
@@ -27,9 +32,11 @@ class ClubsController < ApplicationController
   end
 
   def edit
+    authorize @club
   end
 
   def update
+    authorize @club
     if @club.update(club_params)
       redirect_to @club
     else
@@ -38,12 +45,14 @@ class ClubsController < ApplicationController
   end
 
   def destroy
+    authorize @club
     @club.destroy
 
     redirect_to clubs_path
   end
 
   def join
+    authorize @club, :join?
     ClubMembership.create(user: Current.user, club: @club)
     redirect_to @club, notice: "You have joined the club."
   end
