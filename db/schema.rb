@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_19_070342) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_19_120235) do
   create_table "club_memberships", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "club_id", null: false
@@ -43,7 +43,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_19_070342) do
     t.string "subject"
     t.datetime "datetime"
     t.string "location"
-    t.integer "max_participants"
+    t.integer "max_participants", default: 0
     t.integer "organizer_id"
     t.integer "club_id"
     t.datetime "created_at", null: false

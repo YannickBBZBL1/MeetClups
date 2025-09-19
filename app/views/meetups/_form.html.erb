@@ -1,0 +1,30 @@
+<%=  form_with(model: [@club, @meetup]) do |form| %>
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :subject, style: "display: block" %>
+    <%= form.textarea :subject %>
+  </div>
+
+  <div>
+    <%= form.label :datetime, style: "display: block" %>
+    <%= form.datetime_select :datetime %>
+  </div>
+
+  <div>
+    <%= form.label :location, style: "display: block" %>
+    <%= form.textarea :location %>
+  </div>
+
+  <div>
+    <%= form.label :max_participants, style: "display: block" %>
+    <%= form.number_field :max_participants, min: 1, max:100000 %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

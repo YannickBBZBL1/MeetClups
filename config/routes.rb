@@ -19,6 +19,12 @@ Rails.application.routes.draw do
     member do
       post :join
     end
+
+    resources :meetups, only: [:index, :show, :new, :create, :edit, :destroy, :update] do
+      member do
+        post :participate
+      end
+    end
   end
 
 

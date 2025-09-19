@@ -1,0 +1,25 @@
+<%= render @meetup %>
+<% if authenticated? %>
+
+  <% if policy(@meetup).edit? %>
+  <div>
+    <%= link_to "Edit this meetup", edit_club_meetup_path(@club, @meetup) %> |
+    <%= button_to "Destroy this meetup", [@club, @meetup], method: :delete %>
+  </div>
+  <% end %>
+  <% if policy(@meetup).participate? %>
+    <%= button_to "Participate in this meetup", participate_club_meetup_path(@club, @meetup), method: :post %>
+  <% end %>
+  <%= link_to "Meetups", club_meetups_path %>
+
+  <% if policy(@meetup).edit? %>
+    <h3>Participants</h3>
+
+    <div id="meetup">
+      <% @meetup.users.each do |user| %>
+        <p> Username: <%= user.username %></p>
+      <% end %>
+    </div>
+
+  <% end %>
+<% end %>

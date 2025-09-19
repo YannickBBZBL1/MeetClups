@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Meetups" %>
+
+<h1>Meetups for <%= @club.title %></h1>
+
+<div id="meetup">
+  <% @meetups.each do |meetup| %>
+    <%= render meetup  %>
+    <p>
+      <%= link_to "Show this meetup", club_meetup_path(@club, meetup) %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New meetup", new_club_meetup_path(@club) %>

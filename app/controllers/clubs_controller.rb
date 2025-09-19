@@ -28,7 +28,6 @@ class ClubsController < ApplicationController
     else
       render :new, status: :unprocessable_content
     end
-    flash.now[:alert] = @club.errors.full_messages.join(", ")
   end
 
   def edit
@@ -46,6 +45,7 @@ class ClubsController < ApplicationController
 
   def destroy
     authorize @club
+    @club.users.clear
     @club.destroy
 
     redirect_to clubs_path

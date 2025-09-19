@@ -1,4 +1,3 @@
-<p style="color: green"><%= notice %></p>
 <%= render @club %>
 <% if authenticated? %>
   <% if policy(@club).join? %>
@@ -10,5 +9,6 @@
     <%= button_to "Destroy this club", @club, method: :delete %>
   </div>
   <% end %>
+  <%= link_to "Meetups", club_meetups_path(@club) %>
 <% end %>
 <%= link_to "Back to club", clubs_path %>

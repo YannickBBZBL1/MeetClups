@@ -1,0 +1,7 @@
+<% content_for :title, "New meetup" %>
+<h1>New meetup</h1>
+<%= render "form", meetup: @meetup, club: @club %>
+<br>
+<div>
+  <%= link_to "Back to meetups", club_meetups_path(@club) %>
+</div>
