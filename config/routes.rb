@@ -12,7 +12,16 @@ Rails.application.routes.draw do
   resource :registrations, only: [:new, :create], path: "register"
   resource :session
   resources :passwords, param: :token
+  resources :clubs
+  resources :meetups
+
+  resources :clubs do
+    member do
+      post :join
+    end
+  end
+
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "clubs#index"
 end

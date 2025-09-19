@@ -11,7 +11,6 @@ class User < ApplicationRecord
   has_many :clubs_admin, class_name: 'Club', foreign_key: 'admin_id'
 
   validates :username, presence: true, uniqueness: true
-  add_index :users, :username, unique: true
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
 end

@@ -7,5 +7,4 @@ class Club < ApplicationRecord
   has_many :meetups
 
   validates :title, presence: true, uniqueness: true
-  add_index :clubs, :title, unique: true
 end

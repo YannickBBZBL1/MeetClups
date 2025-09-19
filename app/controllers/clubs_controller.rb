@@ -1,0 +1,64 @@
+class ClubsController < ApplicationController
+  skip_before_action :require_authentication, only: [:index, :show]
+  before_action :set_club, only: [:show, :join]
+  before_action :set_user_club, only: [:edit, :update, :destroy]
+
+
+  def index
+    @clubs = Club.all
+  end
+
+  def new
+    @club = Club.new
+  end
+
+  def show
+  end
+
+  def create
+    @club = Current.user.clubs_admin.new(club_params)
+
+    if @club.save
+      redirect_to @club
+    else
+      render :new, status: :unprocessable_content
+    end
+    flash.now[:alert] = @club.errors.full_messages.join(", ")
+  end
+
+  def edit
+  end
+
+  def update
+    if @club.update(club_params)
+      redirect_to @club
+    else
+      render :edit, status: :unprocessable_content
+    end
+  end
+
+  def destroy
+    @club.destroy
+
+    redirect_to clubs_path
+  end
+
+  def join
+    ClubMembership.create(user: Current.user, club: @club)
+    redirect_to @club, notice: "You have joined the club."
+  end
+
+  private
+
+  def set_club
+    @club = Club.find(params[:id])
+  end
+
+  def set_user_club
+    @club = Current.user.clubs_admin.find(params[:id])
+  end
+
+  def club_params
+    params.require(:club).permit(:title, :description)
+  end
+end

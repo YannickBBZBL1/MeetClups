@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_19_063612) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_19_070342) do
   create_table "club_memberships", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "club_id", null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_19_063612) do
     t.integer "admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_clubs_on_title", unique: true
   end
 
   create_table "meetup_participants", force: :cascade do |t|
@@ -66,6 +67,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_19_063612) do
     t.string "name", null: false
     t.string "username", null: false
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "club_memberships", "clubs"
