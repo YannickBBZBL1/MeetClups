@@ -23,6 +23,14 @@
   </head>
 
   <body>
+    <nav>
+      <% if authenticated? %>
+        <%= link_to "Log out", session_path, data: { turbo_method: :delete } %>
+      <% else %>
+        <%= link_to "Signup", new_registrations_path %>
+        <%= link_to "Log in", new_session_path %>
+      <% end %>
+    </nav>
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,16 @@
+<h1>Register</h1>
+<%= form_with model: @user, url: registrations_path do |form| %>
+  <div>
+    <%= form.label :email_address %><br>
+    <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address" %><br>
+  </div>
+  <div>
+    <%= form.label :password %><br>
+    <%= form.password_field :password, required: true %><br>
+  </div>
+  <div>
+    <%= form.label :password_confirmation %><br>
+    <%= form.password_field :password_confirmation, required: true %><br>
+  </div>
+  <%= form.submit "Sign in" %>
+<% end %>
