@@ -1,30 +1,30 @@
-<%=  form_with(model: [@club, @meetup]) do |form| %>
+<%=  form_with(model: [@club, @meetup], class: "space-y-6 max-w-xl w-full") do |form| %>
   <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+    <%= form.label :title, class: "input-key"%>
+    <%= form.text_field :title, class: "input-value" %>
   </div>
 
   <div>
-    <%= form.label :subject, style: "display: block" %>
-    <%= form.textarea :subject %>
+    <%= form.label :subject, class: "input-key" %>
+    <%= form.textarea :subject, class: "input-value" %>
   </div>
 
   <div>
-    <%= form.label :datetime, style: "display: block" %>
-    <%= form.datetime_select :datetime %>
+    <%= form.label :datetime, class: "input-key" %>
+    <%= form.datetime_select :datetime, class: "input-value" %>
   </div>
 
   <div>
-    <%= form.label :location, style: "display: block" %>
-    <%= form.textarea :location %>
+    <%= form.label :location, class: "input-key" %>
+    <%= form.textarea :location, class: "input-value" %>
   </div>
 
   <div>
-    <%= form.label :max_participants, style: "display: block" %>
-    <%= form.number_field :max_participants, min: 1, max:100000 %>
+    <%= form.label :max_participants, class: "input-key" %>
+    <%= form.number_field :max_participants, min: 1, max:100000, class: "input-value" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="flex justify-center">
+    <%= form.submit "Save", class: "btn" %>
   </div>
 <% end %>

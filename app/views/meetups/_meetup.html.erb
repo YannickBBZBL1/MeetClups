@@ -1,14 +1,21 @@
-<div id="<%= dom_id meetup %>">
-  <p>
-    <strong>Title:</strong>
+<div id="<%= dom_id meetup%>" class="entity">
+  <h1 class="title">
     <%= meetup.title %>
-  </p>
-  <p>
-    <strong>Subject:</strong>
-    <%= meetup.subject %>
-  </p>
-  <p>
-    <strong>organizer:</strong>
-    <%= meetup.organizer.username %>
-  </p>
+  </h1>
+  <div class="property">
+    <span class="key">Subject:</span>
+    <span><%= meetup.subject %></span>
+  </div>
+  <div class="property">
+    <span class="key">Location:</span>
+    <span><%= meetup.location %></span>
+  </div>
+  <div class="property">
+    <span class="key">Date:</span>
+    <span><%= meetup.datetime %></span>
+  </div>
+  <div class="property">
+    <span class="key">Organizer:</span>
+    <span><%= meetup.organizer.username %></span>
+  </div>
 </div>

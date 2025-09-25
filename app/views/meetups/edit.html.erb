@@ -1,12 +1,11 @@
+<div class="btn-container justify-end">
+  <div>
+    <%= render 'shared/back-btn', path: club_meetups_path %>
+  </div>
+</div>
+
 <% content_for :title, "Editing meetup" %>
 
-<h1>Editing meetup</h1>
+<h1 class="title">Editing meetup</h1>
 
 <%= render "form", meetup: @meetup %>
-
-<br>
-
-<div>
-  <%= link_to "Show this meetup", @meetup %> |
-  <%= link_to "Back to meetup", club_meetups_path %>
-</div>

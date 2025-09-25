@@ -20,6 +20,10 @@
     @apply border border-gray-300 rounded-lg p-4 text-6xl font-semibold bg-white shadow-sm text-center;
 }
 
+.title-small {
+    @apply border border-gray-300 rounded-lg p-4 text-4xl font-semibold bg-white shadow-sm text-center;
+}
+
 .entity {
     @apply flex flex-col gap-y-5  max-w-sm w-full
 }

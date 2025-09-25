@@ -1,16 +1,21 @@
-<p style="color: green"><%= notice %></p>
+<div class="btn-container justify-end">
+  <div>
+    <%= render 'shared/back-btn', path: @club %>
+  </div>
+
+  <div>
+    <%= render 'shared/add-btn', path: new_club_meetup_path(@club) %>
+  </div>
+</div>
 
 <% content_for :title, "Meetups" %>
 
-<h1>Meetups for <%= @club.title %></h1>
+<h1 class="title">Meetups for <%= @club.title %></h1>
 
 <div id="meetup">
   <% @meetups.each do |meetup| %>
-    <%= render meetup  %>
-    <p>
-      <%= link_to "Show this meetup", club_meetup_path(@club, meetup) %>
-    </p>
+    <%= link_to club_meetup_path(@club, meetup) do %>
+    <%= render partial: "meetups/meetup_short", locals: { meetup_short: meetup }  %>
+    <% end %>
   <% end %>
 </div>
-
-<%= link_to "New meetup", new_club_meetup_path(@club) %>
