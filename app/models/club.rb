@@ -1,4 +1,5 @@
 class Club < ApplicationRecord
+  has_paper_trail
   belongs_to :admin, class_name: 'User'
 
   has_many :club_memberships

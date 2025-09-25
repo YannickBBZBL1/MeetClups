@@ -1,0 +1,12 @@
+<h1>Aktivitäts-Feed</h1>
+
+<ul>
+  <% @versions.each do |version| %>
+    <li>
+      <%= version.created_at.strftime("%d.%m.%Y %H:%M") %> -
+      <%= version.event.capitalize %> -
+      <%= version.item_type %> mit ID <%= version.item_id %> -
+      <%= user_name(version.whodunnit) %>
+    </li>
+  <% end %>
+</ul>

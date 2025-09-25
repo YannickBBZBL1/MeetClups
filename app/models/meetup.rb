@@ -1,4 +1,5 @@
 class Meetup < ApplicationRecord
+  has_paper_trail
   belongs_to :organizer, class_name: 'User'
   belongs_to :club
 

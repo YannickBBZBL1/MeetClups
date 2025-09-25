@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "activities/index"
   get "users/show"
   get "users/edit"
   get "users/update"
@@ -36,6 +37,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: [:index, :edit, :update]
   end
+
+  resources :activities, only: [:index]
+
 
 
   # Defines the root path route ("/")
