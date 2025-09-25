@@ -1,15 +1,15 @@
-<%= form_with(model: club) do |form| %>
+<%= form_with(model: club, class: "space-y-6 max-w-xl w-full") do |form| %>
   <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+    <%= form.label :title, class: "input-key" %>
+    <%= form.text_field :title, class: "input-value" %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.textarea :description %>
+    <%= form.label :description, class: "input-key" %>
+    <%= form.text_area :description, rows: 5, class: "input-value" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="flex justify-center">
+    <%= form.submit "Save", class: "btn" %>
   </div>
 <% end %>

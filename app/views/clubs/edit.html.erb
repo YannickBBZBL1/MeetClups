@@ -1,12 +1,12 @@
+<div class="btn-container justify-end">
+  <div>
+    <%= render 'shared/back-btn', path: @club %>
+  </div>
+
+</div>
+
 <% content_for :title, "Editing club" %>
 
-<h1>Editing club</h1>
+<h1 class="title">Editing club</h1>
 
 <%= render "form", club: @club %>
-
-<br>
-
-<div>
-  <%= link_to "Show this club", @club %> |
-  <%= link_to "Back to club", clubs_path %>
-</div>

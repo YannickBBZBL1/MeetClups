@@ -1,16 +1,21 @@
-<p style="color: green"><%= notice %></p>
+<div class="btn-container justify-end">
+  <div></div> <!-- empty left side -->
 
-<% content_for :title, "Clubs" %>
-
-<h1>Clubs</h1>
-
-<div id="clubs">
-  <% @clubs.each do |club| %>
-    <%= render partial: "clubs/club_short", locals: { club_short: club }  %>
-    <p>
-      <%= link_to "Show this club", club %>
-    </p>
+  <% if authenticated? %>
+    <div>
+      <%= render 'shared/add-btn', path: new_club_path %>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New club", new_club_path %>
+<% content_for :title, "Clubs" %>
+
+<h1 class="title">Clubs</h1>
+
+<div id="clubs" class="list">
+  <% @clubs.each do |club| %>
+    <%= link_to club do %>
+      <%= render partial: "clubs/club_short", locals: { club_short: club }  %>
+    <% end %>
+  <% end %>
+</div>

@@ -1,9 +1,4 @@
-<div id="<%= dom_id club_short %>">
-  <p>
-    <strong>Title:</strong>
-    <%= club_short.title %>
-
-    <strong>Admin:</strong>
-    <%= club_short.admin.username %>
-  </p>
+<div id="<%= dom_id club_short %>" class="list-item">
+  <span><strong><%= club_short.title %></strong></span>
+  <span><strong>Admin:</strong> <%= club_short.admin.username %></span>
 </div>
