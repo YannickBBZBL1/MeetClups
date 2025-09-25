@@ -24,7 +24,7 @@ class MeetupsController < ApplicationController
       if @meetup.save
         redirect_to [@club, @meetup]
       else
-        render :new, status: :unprocessable_content
+        render :new, status: :unprocessable_entity
       end
     end
 
@@ -41,7 +41,7 @@ class MeetupsController < ApplicationController
       if @meetup.update(meetup_params)
         redirect_to [@club, @meetup]
       else
-        render :edit, status: :unprocessable_content
+        render :edit, status: :unprocessable_entity
       end
     end
 

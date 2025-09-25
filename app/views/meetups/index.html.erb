@@ -12,10 +12,10 @@
 
 <h1 class="title">Meetups for <%= @club.title %></h1>
 
-<div id="meetup">
+<div id="meetup" class="list">
   <% @meetups.each do |meetup| %>
     <%= link_to club_meetup_path(@club, meetup) do %>
-    <%= render partial: "meetups/meetup_short", locals: { meetup_short: meetup }  %>
+      <%= render partial: "meetups/meetup_short", locals: { meetup_short: meetup }  %>
     <% end %>
   <% end %>
 </div>

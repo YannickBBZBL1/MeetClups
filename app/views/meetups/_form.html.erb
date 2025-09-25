@@ -1,4 +1,15 @@
 <%=  form_with(model: [@club, @meetup], class: "space-y-6 max-w-xl w-full") do |form| %>
+  <% if @meetup.errors.any? %>
+    <div class="error-container">
+      <strong class="font-bold">There were some problems:</strong>
+      <ul class="error">
+        <% @meetup.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div>
     <%= form.label :title, class: "input-key"%>
     <%= form.text_field :title, class: "input-value" %>
@@ -21,7 +32,7 @@
 
   <div>
     <%= form.label :max_participants, class: "input-key" %>
-    <%= form.number_field :max_participants, min: 1, max:100000, class: "input-value" %>
+    <%= form.number_field :max_participants, class: "input-value" %>
   </div>
 
   <div class="flex justify-center">

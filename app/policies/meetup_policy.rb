@@ -25,7 +25,7 @@ class MeetupPolicy < ApplicationPolicy
   end
 
   def participate?
-    user.present? && !record.users.include?(user) && record.users.count < record.max_participants
+    user.present? && !record.users.include?(user) && (record.users.count < record.max_participants || record.max_participants == 0)
   end
 
   class Scope < Scope

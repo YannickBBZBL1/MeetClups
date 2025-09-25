@@ -26,7 +26,7 @@ class ClubsController < ApplicationController
     if @club.save
       redirect_to @club
     else
-      render :new, status: :unprocessable_content
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -39,7 +39,7 @@ class ClubsController < ApplicationController
     if @club.update(club_params)
       redirect_to @club
     else
-      render :edit, status: :unprocessable_content
+      render :edit, status: :unprocessable_entity
     end
   end
 
