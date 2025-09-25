@@ -1,13 +1,14 @@
-<div id="<%= dom_id club %>" class="flex flex-col gap-y-5 mt-10">
+<div id="<%= dom_id club %>" class="entity">
   <h1 class="title">
     <%= club.title %>
   </h1>
-  <p>
-    <strong>Description:</strong>
-    <%= club.description %>
-  </p>
-  <p>
-    <strong>Admin:</strong>
-    <%= club.admin.username %>
-  </p>
+  <div class="property">
+    <span class="key">Description:</span>
+    <span><%= club.description %></span>
+  </div>
+
+  <div class="property">
+    <span class="key">Admin:</span>
+    <span><%= club.admin.username %></span>
+  </div>
 </div>

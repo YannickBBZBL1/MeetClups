@@ -4,6 +4,42 @@
     @apply bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded;
 }
 
+.inverted-btn {
+    @apply bg-gray-200 hover:bg-gray-300 text-blue-500 font-bold py-2 px-4 rounded;
+}
+
+.green-btn {
+    @apply bg-green-200 hover:bg-green-300 text-white font-bold py-2 px-4 rounded;
+}
+
+.red-btn {
+    @apply bg-red-300 hover:bg-red-400 text-white font-bold py-2 px-4 rounded;
+}
+
 .title {
     @apply border border-gray-300 rounded-lg p-4 text-6xl font-semibold bg-white shadow-sm text-center;
+}
+
+.entity {
+    @apply flex flex-col gap-y-5  max-w-sm w-full
+}
+
+.property {
+    @apply flex justify-between
+}
+
+.key {
+    @apply font-semibold
+}
+
+.back-btn {
+    @apply p-2 inline-flex items-center gap-1 ml-5
+}
+
+.function-btn {
+    @apply p-2 inline-flex items-center gap-1 mr-5
+}
+
+.btn-container {
+    @apply flex justify-between w-full items-center mt-5
 }

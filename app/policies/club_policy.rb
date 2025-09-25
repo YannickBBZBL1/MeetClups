@@ -8,6 +8,10 @@ class ClubPolicy < ApplicationPolicy
     user.present? && record.admin != user && !record.users.include?(user)
   end
 
+  def joined?
+    user.present? && (record.users.include?(user) || record.admin == user)
+  end
+
   def edit?
     user.present? && record.admin == user
   end
