@@ -1,0 +1,20 @@
+<h1 class="title">My Account</h1>
+
+<div class="entity">
+  <div class="property">
+    <span class="key">Username:</span>
+    <span><%= Current.user.username %></span>
+  </div>
+  <div class="property">
+    <span class="key">Email:</span>
+    <span><%= Current.user.email_address %></span>
+  </div>
+  <div class="property">
+    <span class="key">Name:</span>
+    <span><%= Current.user.name %></span>
+  </div>
+</div>
+
+<div class="mt-6">
+  <%= link_to "Edit Profile", edit_user_path, class: "btn" %>
+</div>

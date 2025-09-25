@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get "users/show"
+  get "users/edit"
+  get "users/update"
+  get "accounts/show"
+  get "accounts/edit"
+  get "accounts/update"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -10,6 +16,7 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   resource :registrations, only: [:new, :create], path: "register"
+  resource :user, only: [:show, :edit, :update]
   resource :session
   resources :clubs
   resources :meetups
