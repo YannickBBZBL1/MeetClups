@@ -1,24 +1,32 @@
-<h1>Register</h1>
-<%= form_with model: @user, url: registrations_path do |form| %>
+<h1 class="title mt-10">Register</h1>
+
+<%= form_with model: @user, class: "space-y-6 max-w-xl w-full", url: registrations_path do |form| %>
   <div>
-    <%= form.label :username %><br>
-    <%= form.text_field :username, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your username" %><br>
+    <%= form.label :username, class: "input-key" %>
+    <%= form.text_field :username, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your username" %>
   </div>
+
   <div>
-    <%= form.label :email_address %><br>
-    <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "email", placeholder: "Enter your email address" %><br>
+    <%= form.label :email_address, class: "input-key" %>
+    <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "email", class: "input-value" %>
   </div>
+
   <div>
-    <%= form.label :name %><br>
-    <%= form.text_field :name, required: true, autofocus: true, autocomplete: "fullname", placeholder: "Enter your full name" %><br>
+    <%= form.label :name, class: "input-key" %>
+    <%= form.text_field :name, required: true, autofocus: true, autocomplete: "fullname", class: "input-value" %>
   </div>
+
   <div>
-    <%= form.label :password %><br>
-    <%= form.password_field :password, required: true %><br>
+    <%= form.label :password, class: "input-key" %>
+    <%= form.password_field :password, required: true, class: "input-value" %>
   </div>
+
   <div>
-    <%= form.label :password_confirmation %><br>
-    <%= form.password_field :password_confirmation, required: true %><br>
+    <%= form.label :password_confirmation, class: "input-key" %>
+    <%= form.password_field :password_confirmation, required: true, class: "input-value" %>
   </div>
-  <%= form.submit "Register" %>
+
+  <div class="flex justify-center">
+    <%= form.submit "Register", class: "btn" %>
+  </div>
 <% end %>
