@@ -13,7 +13,7 @@ class ClubPolicy < ApplicationPolicy
   end
 
   def edit?
-    user.present? && record.admin == user || user.admin? || user.moderator?
+    user.present? && (record.admin == user || user.admin? || user.moderator?)
   end
 
   def update?
@@ -21,7 +21,7 @@ class ClubPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.present? && record.admin == user || user.admin?
+    user.present? && (record.admin == user || user.admin?)
   end
 
   def new?
@@ -33,12 +33,13 @@ class ClubPolicy < ApplicationPolicy
   end
 
   def permitted_attributes
-    if user.present? && record.admin == user
+    if user.present? && (record.admin == user || user.admin? || user.moderator?)
       [:title, :description]
     else
       []
     end
   end
+
 
   class Scope < Scope
     def resolve

@@ -64,7 +64,11 @@ class ClubsController < ApplicationController
   end
 
   def set_user_club
-    @club = Current.user.clubs_admin.find(params[:id])
+    if Current.user.admin? || Current.user.moderator?
+      set_club
+    else
+      @club = Current.user.clubs_admin.find(params[:id])
+    end
   end
 
   def club_params

@@ -5,7 +5,9 @@
     <% if policy(@meetup).edit? %>
       <div class="flex">
         <%= render 'shared/edit-btn', path: edit_club_meetup_path(@club, @meetup) %>
-        <%= render 'shared/delete-btn', path: [@club, @meetup] %>
+        <% if policy(@meetup).destroy? %>
+          <%= render 'shared/delete-btn', path: [@club, @meetup] %>
+        <% end %>
       </div>
     <% end %>
   </div>
