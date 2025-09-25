@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
   resource :registrations, only: [:new, :create], path: "register"
   resource :session
-  resources :passwords, param: :token
   resources :clubs
   resources :meetups
 

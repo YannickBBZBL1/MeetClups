@@ -1,7 +1,7 @@
 class MeetupPolicy < ApplicationPolicy
 
   def show?
-    user.present? && record.users.include?(user)
+    user.present? && (record.club.users.include?(user) || record.club.admin == user)
   end
 
   def edit?

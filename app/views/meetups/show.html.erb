@@ -20,9 +20,8 @@
   <% if policy(@meetup).edit? %>
     <h3 class="title-small">Participants</h3>
 
-    <div id="meetup" lass="property gap-x-2">
+    <div id="meetup" class="flex flex-col gap-y-2 gap-x-2 items-center">
       <% @meetup.users.each do |user| %>
-          <span class="key">Username:</span>
           <span><%= user.username %></span>
       <% end %>
     </div>
