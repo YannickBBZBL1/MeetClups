@@ -13,4 +13,12 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
+
+  enum :role, { user: 0, moderator: 1, admin: 2 }
+
+  after_initialize do
+    if new_record? && role.nil?
+      self.role = :user
+    end
+  end
 end

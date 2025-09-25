@@ -13,7 +13,7 @@ class ClubPolicy < ApplicationPolicy
   end
 
   def edit?
-    user.present? && record.admin == user
+    user.present? && record.admin == user || user.admin? || user.moderator?
   end
 
   def update?
@@ -21,7 +21,7 @@ class ClubPolicy < ApplicationPolicy
   end
 
   def destroy?
-    edit?
+    user.present? && record.admin == user || user.admin?
   end
 
   def new?

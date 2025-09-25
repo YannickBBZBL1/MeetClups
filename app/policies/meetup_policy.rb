@@ -1,11 +1,11 @@
 class MeetupPolicy < ApplicationPolicy
 
   def show?
-    user.present? && (record.club.users.include?(user) || record.club.admin == user)
+    user.present? && (record.club.users.include?(user) || record.club.admin == user || user.admin? || user.moderator?)
   end
 
   def edit?
-    user.present? && record.organizer == user
+    (user.present? && record.organizer == user) || user.admin? || user.moderator?
   end
 
   def update?
@@ -13,7 +13,7 @@ class MeetupPolicy < ApplicationPolicy
   end
 
   def destroy?
-    edit?
+    (user.present? && record.organizer == user) || user.admin?
   end
 
   def new?
