@@ -1,27 +1,45 @@
-<h1>Update user: <%= @user.username %></h1>
+<div class="btn-container">
+  <%= render 'shared/back-btn', path: clubs_path %>
 
-<%= form_with model: @user, url: admin_user_path(@user), method: :patch do |form| %>
+  <div></div>
+</div>
+
+
+<h1 class="title">Update user: <%= @user.username %></h1>
+
+<%= form_with model: @user, url: admin_user_path(@user), method: :patch, class: "space-y-6 max-w-xl w-full" do |form| %>
+  <% if @user.errors.any? %>
+    <div class="error-container">
+      <strong>There were some problems:</strong>
+      <ul class="error">
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
+    <%= form.label :username, class: "input-key" %>
+    <%= form.text_field :username, class: "input-value" %>
   </div>
 
   <div>
-    <%= form.label :email_address %><br>
-    <%= form.email_field :email_address %>
+    <%= form.label :name, class: "input-key" %>
+    <%= form.text_field :name, class: "input-value" %>
   </div>
 
   <div>
-    <%= form.label :username %><br>
-    <%= form.text_field :username %>
+    <%= form.label :email_address, class: "input-key" %>
+    <%= form.email_field :email_address, class: "input-value" %>
   </div>
 
   <div>
-    <%= form.label :role %><br>
-    <%= form.select :role, User.roles.keys.map { |r| [r.humanize, r] } %>
+    <%= form.label :role, class: "input-key" %>
+    <%= form.select :role, User.roles.keys.map { |r| [r.humanize, r] }, {}, class: "input-value" %>
   </div>
 
-  <div>
-    <%= form.submit "Update" %>
+  <div class="flex justify-center">
+    <%= form.submit "Update", class: "btn" %>
   </div>
 <% end %>
