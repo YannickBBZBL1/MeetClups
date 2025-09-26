@@ -1,3 +1,9 @@
+<div class="btn-container">
+  <%= render 'shared/back-btn', path: clubs_path %>
+
+  <div></div>
+</div>
+
 <h1 class="title">My Account</h1>
 
 <div class="entity">
@@ -12,6 +18,10 @@
   <div class="property">
     <span class="key">Name:</span>
     <span><%= Current.user.name %></span>
+  </div>
+  <div class="property">
+    <span class="key">Role:</span>
+    <span><%= Current.user.role %></span>
   </div>
 </div>
 

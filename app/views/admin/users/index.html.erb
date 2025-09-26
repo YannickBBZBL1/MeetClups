@@ -9,10 +9,10 @@
 <table class="min-w-full border border-gray-300 rounded-md overflow-hidden">
   <thead class="bg-gray-100 border-b border-gray-300">
   <tr>
-    <th class="text-left py-3 px-4 font-semibold text-gray-700">Benutzername</th>
+    <th class="text-left py-3 px-4 font-semibold text-gray-700">Username</th>
     <th class="text-left py-3 px-4 font-semibold text-gray-700">E-Mail</th>
-    <th class="text-left py-3 px-4 font-semibold text-gray-700">Rolle</th>
-    <th class="text-left py-3 px-4 font-semibold text-gray-700">Aktionen</th>
+    <th class="text-left py-3 px-4 font-semibold text-gray-700">Role</th>
+    <th class="text-left py-3 px-4 font-semibold text-gray-700">Actions</th>
   </tr>
   </thead>
   <tbody>
@@ -23,7 +23,7 @@
       <td class="py-2 px-4 capitalize"><%= user.role %></td>
       <td class="py-2 px-4">
         <% if policy(user).edit? %>
-          <%= link_to "Bearbeiten", edit_admin_user_path(user), class: "text-blue-600 hover:underline" %>
+          <%= link_to "Edit", edit_admin_user_path(user), class: "text-blue-600 hover:underline" %>
         <% end %>
       </td>
     </tr>

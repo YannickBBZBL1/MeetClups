@@ -1,3 +1,9 @@
+<div class="btn-container">
+  <%= render 'shared/back-btn', path: user_path %>
+
+  <div></div>
+</div>
+
 <h1 class="title">Edit Account</h1>
 
 <%= form_with model: @user, url: user_path, method: :patch, class: "space-y-6 max-w-xl w-full" do |form| %>

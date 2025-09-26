@@ -1,29 +1,40 @@
 <h1 class="title mt-10">Register</h1>
 
+<% if @user.errors.any? %>
+  <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+    <strong><%= pluralize(@user.errors.count, "error") %> prevented registration:</strong>
+    <ul class="mt-2 list-disc list-inside">
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_with model: @user, class: "space-y-6 max-w-xl w-full", url: registrations_path do |form| %>
   <div>
     <%= form.label :username, class: "input-key" %>
-    <%= form.text_field :username, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your username" %>
+    <%= form.text_field :username, autofocus: true, autocomplete: "username", placeholder: "Enter your username" %>
   </div>
 
   <div>
     <%= form.label :email_address, class: "input-key" %>
-    <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "email", class: "input-value" %>
+    <%= form.text_field :email_address, autofocus: true, autocomplete: "email", class: "input-value" %>
   </div>
 
   <div>
     <%= form.label :name, class: "input-key" %>
-    <%= form.text_field :name, required: true, autofocus: true, autocomplete: "fullname", class: "input-value" %>
+    <%= form.text_field :name, autofocus: true, autocomplete: "fullname", class: "input-value" %>
   </div>
 
   <div>
     <%= form.label :password, class: "input-key" %>
-    <%= form.password_field :password, required: true, class: "input-value" %>
+    <%= form.password_field :password, class: "input-value" %>
   </div>
 
   <div>
     <%= form.label :password_confirmation, class: "input-key" %>
-    <%= form.password_field :password_confirmation, required: true, class: "input-value" %>
+    <%= form.password_field :password_confirmation, class: "input-value" %>
   </div>
 
   <div class="flex justify-center">
