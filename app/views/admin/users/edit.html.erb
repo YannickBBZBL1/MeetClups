@@ -27,8 +27,13 @@
 
   <div>
     <%= form.label :role, class: "input-key" %>
-    <%= form.select :role, User.roles.keys.map { |r| [r.humanize, r] }, {}, class: "input-value" %>
+    <% if Current.user.admin? %>
+      <%= form.select :role, User.roles.keys.map { |r| [r.humanize, r] }, {}, class: "input-value" %>
+    <% else %>
+      <%= form.text_field :role, value: @user.role.humanize, class: "input-value", disabled: true %>
+    <% end %>
   </div>
+
 
   <div class="flex justify-center">
     <%= form.submit "Update", class: "btn" %>
