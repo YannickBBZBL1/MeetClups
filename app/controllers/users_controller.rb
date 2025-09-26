@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       if old_email != @user.email_address
         confirmation_link = "http://localhost:3000/confirm-email?email=#{CGI.escape(@user.email_address)}"
-        Rails.logger.debug "📧 Neuer Bestätigungslink für #{@user.username}: #{confirmation_link}"
+        Rails.logger.info "📧 Neuer Bestätigungslink für #{@user.username}: #{confirmation_link}"
       end
 
       redirect_to user_path, notice: "Account updated successfully."

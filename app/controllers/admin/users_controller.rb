@@ -3,16 +3,16 @@ module Admin
     before_action :set_user, only: [:edit, :update]
 
     def index
-      @users = policy_scope(User)
-      authorize User
+      @users = policy_scope([:admin, User])
+      authorize [:admin, User]
     end
 
     def edit
-      authorize @user
+      authorize [:admin, @user]
     end
 
     def update
-      authorize @user
+      authorize [:admin, @user]
       if @user.update(user_params)
         redirect_to admin_users_path, notice: "User successfully updated"
       else
