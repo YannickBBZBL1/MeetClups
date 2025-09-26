@@ -7,16 +7,7 @@
 <h1 class="title">Edit Account</h1>
 
 <%= form_with model: @user, url: user_path, method: :patch, class: "space-y-6 max-w-xl w-full" do |form| %>
-  <% if @user.errors.any? %>
-    <div class="error-container">
-      <strong>There were some problems:</strong>
-      <ul class="error">
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render "shared/form-errors", object: @user %>
 
   <div>
     <%= form.label :username, class: "input-key" %>

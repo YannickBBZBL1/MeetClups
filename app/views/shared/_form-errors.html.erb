@@ -1,0 +1,29 @@
+<% if object.errors.any? %>
+  <div
+    id="form-error-card"
+    class="error-card"
+  >
+    <div class="error-container">
+      <div>
+        <h3 class="error">
+          <%= pluralize(object.errors.count, "error") %> prevented submission:
+        </h3>
+        <ul class="list-disc list-inside text-sm text-red-600 space-y-1">
+          <% object.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+      setTimeout(() => {
+          const card = document.getElementById("form-error-card");
+          if (card) {
+              card.style.opacity = 0;
+              setTimeout(() => card.remove(), 500);
+          }
+      }, 5000);
+  </script>
+<% end %>

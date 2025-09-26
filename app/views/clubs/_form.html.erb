@@ -1,14 +1,5 @@
 <%= form_with(model: club, class: "space-y-6 max-w-xl w-full") do |form| %>
-  <% if club.errors.any? %>
-    <div class="error-container">
-      <strong class="font-bold">There were some problems:</strong>
-      <ul class="error">
-        <% club.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render "shared/form-errors", object: club %>
 
   <div>
     <%= form.label :title, class: "input-key" %>
