@@ -22,7 +22,7 @@ class MeetupsController < ApplicationController
       authorize @meetup
 
       if @meetup.save
-        redirect_to [@club, @meetup]
+        redirect_to [@club, @meetup], notice: "Successfully created the meetup!"
       else
         render :new, status: :unprocessable_entity
       end
@@ -39,7 +39,7 @@ class MeetupsController < ApplicationController
     def update
       authorize @meetup
       if @meetup.update(meetup_params)
-        redirect_to [@club, @meetup]
+        redirect_to [@club, @meetup], notice: "Successfully updated the meetup!"
       else
         render :edit, status: :unprocessable_entity
       end
@@ -49,7 +49,7 @@ class MeetupsController < ApplicationController
       authorize @meetup
       @meetup.users.clear
       @meetup.destroy
-      redirect_to club_meetups_path(@club)
+      redirect_to club_meetups_path(@club), notice: "Successfully destroyed the meetup!"
     end
 
     def participate

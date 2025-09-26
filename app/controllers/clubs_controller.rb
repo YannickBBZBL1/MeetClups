@@ -24,7 +24,7 @@ class ClubsController < ApplicationController
     authorize @club
 
     if @club.save
-      redirect_to @club
+      redirect_to @club, notice: "Successfully created the club!"
     else
       render :new, status: :unprocessable_entity
     end
@@ -37,7 +37,7 @@ class ClubsController < ApplicationController
   def update
     authorize @club
     if @club.update(club_params)
-      redirect_to @club
+      redirect_to @club, notice: "Successfully updated the club!"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -48,7 +48,7 @@ class ClubsController < ApplicationController
     @club.users.clear
     @club.destroy
 
-    redirect_to clubs_path
+    redirect_to clubs_path, notice: "Successfully destroyed the club!"
   end
 
   def join

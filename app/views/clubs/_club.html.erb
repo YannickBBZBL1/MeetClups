@@ -1,7 +1,7 @@
 <div id="<%= dom_id club %>" class="entity">
-  <h1 class="title">
-    <%= club.title %>
-  </h1>
+  <h1 class="title"><%= club.title %></h1>
+  <%= render 'shared/form-success' %>
+
   <div class="property">
     <span class="key">Description:</span>
     <span><%= club.description %></span>

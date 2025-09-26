@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = Current.user # oder User.find(params[:id]) – je nach App-Logik
+    @user = Current.user
   end
 end
 

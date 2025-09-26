@@ -14,7 +14,7 @@ module Admin
     def update
       authorize [:admin, @user]
       if @user.update(user_params)
-        redirect_to admin_users_path, notice: "User successfully updated"
+        redirect_to admin_users_path, notice: "User successfully updated!"
       else
         render :edit, status: :unprocessable_entity
       end
