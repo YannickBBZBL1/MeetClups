@@ -1,21 +1,28 @@
 <div id="<%= dom_id meetup%>" class="entity">
-  <h1 class="title">
-    <%= meetup.title %>
-  </h1>
+  <h1 class="title"><%= meetup.title %></h1>
+
   <div class="property">
     <span class="key">Subject:</span>
     <span><%= meetup.subject %></span>
   </div>
+
   <div class="property">
     <span class="key">Location:</span>
     <span><%= meetup.location %></span>
   </div>
+
   <div class="property">
     <span class="key">Date:</span>
     <span><%= meetup.datetime %></span>
   </div>
+
   <div class="property">
     <span class="key">Organizer:</span>
     <span><%= meetup.organizer.username %></span>
+  </div>
+
+  <div class="property">
+    <span class="key">State:</span>
+    <span><%= meetup.users.count %>/<%= meetup.max_participants == 0 ? "∞" : meetup.max_participants %></span>
   </div>
 </div>
